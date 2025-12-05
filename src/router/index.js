@@ -89,6 +89,43 @@ export const constantRoutes = [
 // 动态路由，基于用户权限动态去加载
 export const dynamicRoutes = [
   {
+    path: '/iot',
+    component: Layout,
+    meta: { title: 'IoT', icon: 'guide', permissions: [] },
+    children: [
+      {
+        path: 'sensor-list',
+        component: () => import('@/views/iot/SensorList.vue'),
+        name: 'IotSensorList',
+        meta: { title: '传感器列表', icon: 'list', permissions: [] }
+      },
+      {
+        path: 'sensor-detail',
+        component: () => import('@/views/iot/SensorDetail.vue'),
+        name: 'IotSensorDetail',
+        meta: { title: '传感器详情', icon: 'component', permissions: [] }
+      },
+      {
+        path: 'alarm-monitor',
+        component: () => import('@/views/iot/AlarmMonitor.vue'),
+        name: 'IotAlarmMonitor',
+        meta: { title: '报警监控', icon: 'eye', permissions: [] }
+      },
+      {
+        path: 'quota-manage',
+        component: () => import('@/views/iot/QuotaManage.vue'),
+        name: 'IotQuotaManage',
+        meta: { title: '通知额度', icon: 'money', permissions: [] }
+      },
+      {
+        path: 'import-wizard',
+        component: () => import('@/views/iot/ImportWizard.vue'),
+        name: 'IotImportWizard',
+        meta: { title: '批量导入', icon: 'upload', permissions: [] }
+      }
+    ]
+  },
+  {
     path: '/system/user-auth',
     component: Layout,
     hidden: true,
